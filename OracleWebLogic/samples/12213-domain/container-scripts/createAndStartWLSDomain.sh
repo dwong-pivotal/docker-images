@@ -39,6 +39,7 @@ else
    echo "      ----> 'weblogic' admin password: $s"
 fi 
 sed -i -e "s|ADMIN_PASSWORD|$s|g" /u01/oracle/create-wls-domain.py
+sed -i -e "s|ADMIN_PORT|$(($ADMIN_PORT + $CF_INSTANCE_INDEX))|g" /u01/oracle/create-wls-domain.py
 
 # Create an empty domain
 wlst.sh -skipWLSModuleScanning /u01/oracle/create-wls-domain.py

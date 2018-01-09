@@ -59,9 +59,11 @@ RUN chmod +xw /u01/oracle/*.sh && \
     chmod a+xr $PRE_DOMAIN_HOME && \
     chown -R oracle:oracle $PRE_DOMAIN_HOME
 
-VOLUME $PRE_DOMAIN_HOME
+# VOLUME $PRE_DOMAIN_HOME
 # Expose Node Manager default port, and also default for admin and managed server 
-EXPOSE $NM_PORT $ADMIN_PORT $MS_PORT $DEBUG_PORT
+#EXPOSE $NM_PORT $ADMIN_PORT $MS_PORT $DEBUG_PORT 1000-1250
+
+EXPOSE 7000-7100 8000-8100
 
 USER oracle
 WORKDIR $ORACLE_HOME
