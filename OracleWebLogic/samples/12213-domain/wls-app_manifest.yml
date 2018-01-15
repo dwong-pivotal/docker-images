@@ -1,0 +1,21 @@
+applications:
+- name: wls-app
+  instances: 1
+  memory: 2048M
+  disk_quota: 2048M
+  routes:
+  - route: wls-app.pcf-on-gcp.net
+  env:
+    ADMIN_HOST: localhost
+    ADMIN_NAME: AdminServer
+    ADMIN_PASSWORD: P@ssw0rd
+    ADMIN_PORT: "7001"
+    ADMIN_USERNAME: weblogic
+    CLUSTER_NAME: WebLogicCluster
+    DEBUG_FLAG: "true"
+    DOMAIN_NAME: ABCDomain
+    MS_NAME: ManagedServer1
+    MS_PORT: "8001"
+    PRODUCTION_MODE: dev
+  stack: cflinuxfs2
+  health-check-type: none
